@@ -34,12 +34,12 @@ React.useEffect(() => {
         const carregarForm = async () => {
             const dados = await fornecedoresService.getById(id);
             setFornecedor({
-                id_fornecedor: dados.data[0]["id_fornecedor"],
-                razao_social: dados.data[0]["razao_social"],
-                nome_fantasia: dados.data[0]["nome_fantasia"],
-                cnpj: dados.data[0]["cnpj"],
-                telefone: dados.data[0]["telefone"],
-                email: dados.data[0]["email"],
+                ID_FORNECEDOR: dados.data[0]["ID_FORNECEDOR"],
+                RAZAO_SOCIAL: dados.data[0]["RAZAO_SOCIAL"],
+                NOME_FANTASIA: dados.data[0]["NOME_FANTASIA"],
+                CNPJ: dados.data[0]["CNPJ"],
+                TELEFONE: dados.data[0]["TELEFONE"],
+                EMAIL: dados.data[0]["EMAIL"],
             });
       
       setLoading(false);
@@ -99,9 +99,9 @@ React.useEffect(() => {
             name="nome_fantasia"
             placeholder="Digite seu nome fantasia"
             required
-            value={fornecedor.nome_fantasia}
+            value={fornecedor.NOME_FANTASIA}
             onChange={(e) =>
-              setFornecedor({ ...fornecedor, nome_fantasia: e.target.value })
+              setFornecedor({ ...fornecedor, NOME_FANTASIA: e.target.value })
             }
           />
         </div>
@@ -117,11 +117,11 @@ React.useEffect(() => {
             name="razao_social"
             placeholder="Digite sua razão social"
             required
-            value={fornecedor.razao_social}
+            value={fornecedor.RAZAO_SOCIAL}
             onChange={(e) =>
               setFornecedor({
                 ...fornecedor,
-                razao_social: e.target.value,
+                RAZAO_SOCIAL: e.target.value,
               })
             }
           />
@@ -138,11 +138,11 @@ React.useEffect(() => {
                 name="cnpj"
                 placeholder="00.000.000/0000-00"
                 mask="99.999.999/9999-99"
-                value={fornecedor.cnpj}
+                value={fornecedor.CNPJ}
                 onChange={(e) => {
                   setFornecedor({
                     ...fornecedor,
-                    cnpj: e.target.value,
+                    CNPJ: e.target.value,
                   });
                 }}
               />
@@ -160,11 +160,11 @@ React.useEffect(() => {
                 name="telefone"
                 placeholder="(00) 00000-0000"
                 mask="(99) 99999-9999"
-                value={fornecedor.telefone}
+                value={fornecedor.TELEFONE}
                 onChange={(e) => {
                   setFornecedor({
                     ...fornecedor,
-                    telefone: e.target.value,
+                    TELEFONE: e.target.value,
                   });
                 }}
               />
@@ -181,9 +181,9 @@ React.useEffect(() => {
             id="email"
             name="email"
             placeholder="seu@email.com"
-            value={fornecedor.email}
+            value={fornecedor.EMAIL}
             onChange={(e) =>
-              setFornecedor({ ...fornecedor, email: e.target.value })
+              setFornecedor({ ...fornecedor, EMAIL: e.target.value })
             }
           />
         </div>

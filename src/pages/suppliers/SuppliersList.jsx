@@ -81,26 +81,26 @@ const SuppliersList = () => {
   const columns = [
     {
       header: "Código",
-      accessor: "id_fornecedor",
+      accessor: "ID_FORNECEDOR",
     },
     {
       header: "Razão Social",
-      accessor: "razao_social",
+      accessor: "RAZAO_SOCIAL",
     },
     {
       header: "Nome fantasia",
-      accessor: "nome_fantasia",
+      accessor: "NOME_FANTASIA",
     },
     {
       header: "CNPJ",
-      accessor: "cnpj",
+      accessor: "CNPJ",
     },
     {
       header: "Ações",
       accessor: "acoes",
       render: (row) => (
         <div className="flex gap-2">
-          <Link to={`/fornecedores/edit/${row.id_fornecedor}`}>
+          <Link to={`/fornecedores/edit/${row.ID_FORNECEDOR}`}>
             <Button
               className="
                 text-blue-600
@@ -113,9 +113,9 @@ const SuppliersList = () => {
 
           <Button
             onClick={() => {
-  setFornecedoresId(row.id_fornecedor)
+  setFornecedoresId(row.ID_FORNECEDOR)
   setModalOpen(true)
-  console.log("Id => ", row.id_fornecedor)
+  console.log("Id => ", row.ID_FORNECEDOR)
 }}
             className="
               text-red-600

@@ -15,20 +15,20 @@ const ClientsForm = () => {
    const { id } = useParams();
 const [loading, setLoading] = React.useState(true);
   const [cliente, setCliente] = React.useState({
-    id_cliente: "",
-    nome: "",
-    cpf: "",
-    data_nascimento: "",
-    whatsapp: "",
-    email: "",
-    endereco: {
-    logradouro: "",
-    numero: "",
-    complemento: "",
-    bairro: "",
-    cidade: "",
-    estado: "",
-    cep: "",
+    ID_CLIENTE: "",
+    NOME: "",
+    CPF: "",
+    DATA_NASCIMENTO: "",
+    WHATSAPP: "",
+    EMAIL: "",
+    ENDERECO: {
+    LOGRADOURO: "",
+    NUMERO: "",
+    COMPLEMENTO: "",
+    BAIRRO: "",
+    CIDADE: "",
+    ESTADO: "",
+    CEP: "",
     },
   });
 
@@ -42,20 +42,20 @@ React.useEffect(() => {
         const carregarForm = async () => {
             const dados = await clientesService.getById(id);
             setCliente({
-                id_cliente: dados.data[0]["id_cliente"],
-                nome: dados.data[0]["nome"],
-                cpf: dados.data[0]["cpf"],
-                data_nascimento: dados.data[0]["data_nascimento"],
-                whatsapp: dados.data[0]["whatsapp"],
-                email: dados.data[0]["email"],
-                endereco: {
-                    logradouro: dados.data[0]["endereco"]["logradouro"] ?? "",
-                    numero: dados.data[0]["endereco"]["numero"] ?? "",
-                    complemento: dados.data[0]["endereco"]["complemento"] ?? "",
-                    bairro: dados.data[0]["endereco"]["bairro"] ?? "",
-                    cidade: dados.data[0]["endereco"]["cidade"] ?? "",
-                    estado: dados.data[0]["endereco"]["estado"] ?? "",
-                    cep: dados.data[0]["endereco"]["cep"] ?? "",
+                ID_CLIENTE: dados.data[0]["ID_CLIENTE"],
+                NOME: dados.data[0]["NOME"],
+                CPF: dados.data[0]["CPF"],
+                DATA_NASCIMENTO: dados.data[0]["DATA_NASCIMENTO"],
+                WHATSAPP: dados.data[0]["WHATSAPP"],
+                EMAIL: dados.data[0]["EMAIL"],
+                ENDERECO: {
+                    LOGRADOURO: dados.data[0]["ENDERECO"]["LOGRADOURO"] ?? "",
+                    NUMERO: dados.data[0]["ENDERECO"]["NUMERO"] ?? "",
+                    COMPLEMENTO: dados.data[0]["ENDERECO"]["COMPLEMENTO"] ?? "",
+                    BAIRRO: dados.data[0]["ENDERECO"]["BAIRRO"] ?? "",
+                    CIDADE: dados.data[0]["ENDERECO"]["CIDADE"] ?? "",
+                    ESTADO: dados.data[0]["ENDERECO"]["ESTADO"] ?? "",
+                    CEP: dados.data[0]["ENDERECO"]["CEP"] ?? "",
                 },
             });
       // console.log("Cliente => ", dados.data[0]);
@@ -214,7 +214,7 @@ React.useEffect(() => {
                         id="logradouro"
                         name="logradouro"
                         placeholder="Rua, Avenida, etc."
-                        value={cliente.endereco.logradouro}
+                        value={cliente.ENDERECO.LOGRADOURO}
                         onChange={(e) => {
                             setCliente({
                                 ...cliente,
@@ -238,7 +238,7 @@ React.useEffect(() => {
             id="NUMERO"
             name="NUMERO"
             placeholder="Número"
-            value={cliente.endereco.numero}
+            value={cliente.ENDERECO.NUMERO}
                         onChange={(e) => {
                             setCliente({
                                 ...cliente,
@@ -262,7 +262,7 @@ React.useEffect(() => {
             id="COMPLEMENTO"
             name="COMPLEMENTO"
             placeholder="Apto, bloco, casa, etc."
-            value={cliente.endereco.complemento}
+            value={cliente.ENDERECO.COMPLEMENTO}
                         onChange={(e) => {
                             setCliente({
                                 ...cliente,
@@ -286,7 +286,7 @@ React.useEffect(() => {
             id="BAIRRO"
             name="BAIRRO"
             placeholder="Digite seu bairro"
-            value={cliente.endereco.bairro}
+            value={cliente.ENDERECO.BAIRRO}
                         onChange={(e) => {
                             setCliente({
                                 ...cliente,
@@ -310,7 +310,7 @@ React.useEffect(() => {
             id="CIDADE"
             name="CIDADE"
             placeholder="Digite sua cidade"
-            value={cliente.endereco.cidade}
+            value={cliente.ENDERECO.CIDADE}
                         onChange={(e) => {
                             setCliente({
                                 ...cliente,
@@ -335,12 +335,12 @@ React.useEffect(() => {
                 name="estado"
                 placeholder="Digite seu estado"
                 maxLength={2}
-                value={cliente.endereco.estado}
+                value={cliente.ENDERECO.ESTADO}
                 onChange={(e) => {
                   setCliente({
                     ...cliente,
-                    endereco: {
-                      ...cliente.endereco,
+                    ENDERECO: {
+                      ...cliente.ENDERECO,
                       ESTADO: e.target.value,
                     },
                   });
@@ -359,13 +359,13 @@ React.useEffect(() => {
             id="CEP"
             name="CEP"
             placeholder="00000-000"
-            value={cliente.endereco.cep}
+            value={cliente.ENDERECO.CEP}
                         onChange={(e) => {
                             setCliente({
                                 ...cliente,
-                                endereco: {
-                                    ...cliente.endereco,
-                                    cep: e.target.value
+                                ENDERECO: {
+                                    ...cliente.ENDERECO,
+                                    CEP: e.target.value
                                 }
                             })
                         }}

@@ -73,19 +73,19 @@ const ClientsList = () => {
   const columns = [
     {
       header: "Código",
-      accessor: "id_cliente",
+      accessor: "ID_CLIENTE",
     },
     {
       header: "Nome",
-      accessor: "nome",
+      accessor: "NOME",
     },
     {
       header: "CPF",
-      accessor: "cpf",
+      accessor: "CPF",
     },
     {
       header: "Cidade",
-      accessor: "cidade",
+      accessor: "CIDADE",
       render: (row) => row.ENDERECO?.CIDADE,
     },
     {

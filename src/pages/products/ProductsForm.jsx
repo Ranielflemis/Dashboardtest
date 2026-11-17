@@ -20,14 +20,15 @@ const ProductsForm = () => {
   const [loading, setLoading] = React.useState(true);
 
   const [produto, setProduto] = React.useState({
-    id_produto: "",
-    produto: "",
-    descricao: "",
-    qtde: "",
-    preco_unit: "",
-    marca: {
-      id_marca: "",
-      marca: ""
+    ID_PRODUTO: "",
+    PRODUTO: "",
+    DESCRICAO: "",
+    QTDE: "",
+    PRECO_UNIT: "",
+    IMAGEM: "",
+    MARCA: {
+      ID_MARCA: "",
+      MARCA: ""
     },
   });
 
@@ -40,8 +41,8 @@ const ProductsForm = () => {
   };
 
   const marcasOptions = marcas.map((item) => ({
-    value: item.id_marca,
-    label: item.marca,
+    value: item.ID_MARCA,
+    label: item.MARCA,
   }));
 
   React.useEffect(() => {
@@ -62,14 +63,15 @@ const ProductsForm = () => {
         const registro = dados.data[0];
 
         setProduto({
-          id_produto: registro.id_produto,
-          produto: registro.produto,
-          descricao: registro.descricao,
-          qtde: registro.qtde,
-          preco_unit: registro.preco_unit,
-          marca: {
-            id_marca: registro.marca?.id_marca || "",
-            marca: registro.marca?.marca || ""
+          ID_PRODUTO: registro.ID_PRODUTO,
+          PRODUTO: registro.PRODUTO,
+          DESCRICAO: registro.DESCRICAO,
+          QTDE: registro.QTDE,
+          PRECO_UNIT: registro.PRECO_UNIT,
+          IMAGEM: registro.IMAGEM,
+          MARCA: {
+            ID_MARCA: registro.MARCA?.ID_MARCA || "",
+            MARCA: registro.MARCA?.MARCA || ""
           },
         });
 
@@ -140,11 +142,11 @@ const ProductsForm = () => {
                 required={true}
                 name="produto"
                 placeholder="Produto"
-                value={produto.produto}
+                value={produto.PRODUTO}
                 onChange={(e) => {
                   setProduto({
-                    ...produto,
-                    produto: e.target.value,
+                    ...PRODUTO,
+                    PRODUTO: e.target.value,
                   });
                 }}
               />
@@ -158,13 +160,13 @@ const ProductsForm = () => {
               <Select
                 required
                 name="marca"
-                value={produto.marca.id_marca}
+                value={produto.MARCA.ID_MARCA}
                 onChange={(e) =>
                   setProduto({
-                    ...produto,
-                    marca: {
-                      ...produto.marca,
-                      id_marca: e.target.value,
+                    ...PRODUTO,
+                    MARCA: {
+                      ...PRODUTO.MARCA,
+                      ID_MARCA: e.target.value,
                     },
                   })
                 }
@@ -183,11 +185,11 @@ const ProductsForm = () => {
                 required={true}
                 id="descricao"
                 name="descricao"
-                value={produto.descricao}
+                value={produto.DESCRICAO}
                 onChange={(e) => {
                   setProduto({
-                    ...produto,
-                    descricao: e.target.value,
+                    ...PRODUTO,
+                    DESCRICAO: e.target.value,
                   });
                 }}
                 rows={5}
@@ -206,11 +208,11 @@ const ProductsForm = () => {
                 type="number"
                 id="qtde"
                 name="qtde"
-                value={produto.qtde}
+                value={produto.QTDE}
                 onChange={(e) => {
                   setProduto({
-                    ...produto,
-                    qtde: e.target.value,
+                    ...PRODUTO,
+                    QTDE: e.target.value,
                   });
                 }}
               />
@@ -226,29 +228,40 @@ const ProductsForm = () => {
                 id="preco_unit"
                 name="preco_unit"
                 placeholder="9999.99"
-                value={produto.preco_unit}
+                value={produto.PRECO_UNIT}
                 onChange={(e) => {
                   setProduto({
-                    ...produto,
-                    preco_unit: e.target.value,
+                    ...PRODUTO,
+                    PRECO_UNIT: e.target.value,
                   });
                 }}
               />
             </div>
 
             {/* Foto do produto */}
-<div className="md:col-span-2">
-  <Label htmlFor="imagem">
-    Foto do produto
-  </Label>
-
-  <Input
-    type="file"
-    id="imagem"
-    name="imagem"
-    accept="image/*"
-  />
-</div>
+            <div className="md:col-span-2 flex justify-start">
+              <div className="
+    w-40 h-40
+    border-2 border-dashed border-gray-300
+    rounded-lg
+    flex flex-col
+    items-center justify-center
+    bg-gray-50
+    dark:bg-gray-800
+    dark:border-gray-600
+    cursor-pointer
+  ">
+                <ImageUpload
+                  value={produto.IMAGEM}
+                  onChange={(base64) =>
+                    setProduto({
+                      ...PRODUTO,
+                      IMAGEM: base64,
+                    })
+                  }
+                />
+              </div>
+            </div>
 
             {/* Botões */}
             <div className="md:col-span-2 flex gap-2 pt-2">

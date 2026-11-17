@@ -78,34 +78,63 @@ const ProductsList = () => {
   const columns = [
     {
       header: "Código",
-      accessor: "id_produto",
+      accessor: "ID_PRODUTO",
     },
     {
       header: "Produto",
-      accessor: "produto",
+      accessor: "PRODUTO",
       render: (row) => (
-        <div>
-          <p>{row.produto}</p>
-          <span className='text-gray-400 dark:text-gray-600 font-semibold text-sm'>
-            {row.marca?.marca || "Sem marca"}
-          </span>
+        <div className="flex items-center gap-3">
+
+          {/* Imagem do produto */}
+          <div className="
+            w-16 h-16
+            rounded-lg
+            bg-gray-100
+            dark:bg-gray-800
+            flex items-center justify-center
+            overflow-hidden
+            flex-shrink-0
+          ">
+            {row.IMAGEM ? (
+              <img
+                src={row.IMAGEM}
+                alt={row.PRODUTO}
+                className="w-full h-full object-contain"
+              />
+            ) : (
+              <span className="text-gray-400 text-xs text-center">
+                Sem foto
+              </span>
+            )}
+          </div>
+
+          {/* Informações do produto */}
+          <div>
+            <p>{row.PRODUTO}</p>
+
+            <span className="text-gray-400 dark:text-gray-600 font-semibold text-sm">
+              {row.MARCA?.MARCA || "Sem marca"}
+            </span>
+          </div>
+
         </div>
       )
     },
     {
       header: "Qtde",
-      accessor: "qtde",
+      accessor: "QTDE",
     },
     {
       header: "$ Preço",
-      accessor: "preco_unit",
+      accessor: "PRECO_UNIT",
     },
     {
       header: "Ações",
       accessor: "acoes",
       render: (row) => (
         <div className="flex gap-2">
-          <Link to={`/produtos/edit/${row.id_produto}`}>
+          <Link to={`/produtos/edit/${row.ID_PRODUTO}`}>
             <Button
               className="
                 text-blue-600
@@ -118,7 +147,7 @@ const ProductsList = () => {
 
           <Button
             onClick={() => {
-              setProdutoId(row.id_produto)
+              setProdutoId(row.ID_PRODUTO)
               setModalOpen(true)
             }}
             className="

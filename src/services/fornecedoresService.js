@@ -2,25 +2,25 @@ import api from "./api"
 
 const fornecedoresService = {
     getAll: async () => {
-        return await api.get(`/Fornecedores/`)
+        return await api.get(`/fornecedores/`)
     },
     getById: async (id) => {
-        return await api.get(`/Fornecedores/?id=${id}`)
+        return await api.get(`/fornecedores/?id=${id}`)
     },
     getByrazaosocial: async (razao_social) => {
-        return await api.get(`/Fornecedores/?razao_social=${razao_social}`)
+        return await api.get(`/fornecedores/?razao_social=${razao_social}`)
     },
     getBySearch: async (search) => {
-        return await api.get(`/Fornecedores/?search=${search}`)
+        return await api.get(`/fornecedores/?search=${search}`)
     },
     create: async (dados) => {
-        return await api.post(`/Fornecedores/`, dados)
+        return await api.post(`/fornecedores/`, dados)
     },
     update: async (id, dados) => {
-        return await api.put(`/Fornecedores/?id=${id}`, dados)
+        return await api.put(`/fornecedores/?id=${id}`, dados)
     },
     delete: async (id) => {
-        return await api.delete(`/Fornecedores/?id=${id}`)
+        return await api.delete(`/fornecedores/?id=${id}`)
     },
 }
 
